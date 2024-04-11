@@ -21,6 +21,6 @@ def get_all_activity():
 def edit_activity_info():
     pass
 
-@router.delete('/delete')
+@router.delete('/delete/{id}')
 def delete_activity():
     pass

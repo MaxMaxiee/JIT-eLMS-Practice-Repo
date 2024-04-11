@@ -21,6 +21,6 @@ def get_all_quiz():
 def edit_quiz_info():
     pass
 
-@router.delete('/delete')
+@router.delete('/delete/{id}')
 def delete_quiz():
     pass

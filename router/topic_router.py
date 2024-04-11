@@ -21,6 +21,6 @@ def get_all_topic():
 def edit_topic_info():
     pass
 
-@router.delete('/delete')
+@router.delete('/delete/{id}')
 def delete_topic():
     pass

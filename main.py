@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-#from db.database import engine
+from db.database import engine
 from db import models
 from router import admin_router, course_router, lesson_router, topic_router, quiz_router, activity_router
 from auth import authentication
@@ -18,4 +18,4 @@ def index():
         'message': 'server is working'
     }
 
-#models.Base.metadata.create_all(engine)
+models.Base.metadata.create_all(engine)

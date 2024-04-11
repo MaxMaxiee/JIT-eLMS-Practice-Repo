@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends
 
-
 router = APIRouter(
     prefix='/admin',
     tags=['admin'],
@@ -22,6 +21,6 @@ def get_all_admin():
 def edit_admin_info():
     pass
 
-@router.delete('/delete')
+@router.delete('/delete/{id}')
 def delete_admin():
     pass

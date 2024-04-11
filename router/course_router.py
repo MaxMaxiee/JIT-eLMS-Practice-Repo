@@ -21,6 +21,6 @@ def get_all_course():
 def edit_course_info():
     pass
 
-@router.delete('/delete')
+@router.delete('/delete/{id}')
 def delete_course():
     pass

@@ -21,6 +21,6 @@ def get_all_lesson():
 def edit_lesson_info():
     pass
 
-@router.delete('/delete')
+@router.delete('/delete/{id}')
 def delete_lesson():
     pass
