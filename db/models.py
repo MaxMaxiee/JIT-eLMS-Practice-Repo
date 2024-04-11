@@ -4,7 +4,7 @@ from sqlalchemy import Column
 from sqlalchemy.sql.sqltypes import Integer, String, Boolean
 from sqlalchemy.orm import relationship
 
-class DbAdmin():
+class DbAdmin(Base):
     __tablename__ = 'admin'
     id = Column(String, primary_key=True)
     firsname = Column(String)
@@ -13,14 +13,14 @@ class DbAdmin():
     email = Column(String)
     password = Column(String)
 
-class DbCourse():
+class DbCourse(Base):
     __tablename__ = 'course'
     id = Column(String, primary_key=True)
     course_name = Column(String)
     description = Column(String)
     lesson = relationship("DbLesson", back_populates='course')
 
-class DbLesson():
+class DbLesson(Base):
     __tablename__ = 'lesson'
     id = Column(String, primary_key=True)
     course_id = Column(String, ForeignKey('course.id'))
@@ -28,7 +28,7 @@ class DbLesson():
     course = relationship("DbCourse", back_populates='lesson')
 
 
-class DbTopic():
+class DbTopic(Base):
     __tablename__ = 'topic'
     id = Column(String, primary_key=True)
     lesson_id = Column(String, ForeignKey('lesson.id'))
@@ -38,7 +38,7 @@ class DbTopic():
     external_link_vid = Column(String)
     external_link_mat = Column(String)
 
-class DbActivity():
+class DbActivity(Base):
     __tablename__ = 'activity'
     id = Column(String, primary_key=True)
     activity_name = Column(String)
@@ -46,20 +46,21 @@ class DbActivity():
     img_file_url = Column(String)
     remarks = Column(String)
 
-class DbQuiz():
+class DbQuiz(Base):
     __tablename__ = 'quiz'
     id = Column(String, primary_key=True)
     quiz_name = Column(String)
 
-class DbQuizQuestions():
+class DbQuizQuestions(Base):
     __tablename__ = 'quiz_questions'
     id = Column(String, primary_key=True)
     quiz_id = Column(String, ForeignKey('quiz.id'))
     question_name = Column(String)
 
-class DbQuizChoices():
+class DbQuizChoices(Base):
     __tablename__ = 'quiz_choices'
     questions_id = Column(String, ForeignKey('quiz_questions.id'))
+    id = Column(String, primary_key=True)
     choice = Column(String)
 
 
