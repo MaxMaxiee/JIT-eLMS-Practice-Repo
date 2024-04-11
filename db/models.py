@@ -4,6 +4,7 @@ from sqlalchemy import Column
 from sqlalchemy.sql.sqltypes import Integer, String, Boolean
 from sqlalchemy.orm import relationship
 
+# Table for Admin
 class DbAdmin(Base):
     __tablename__ = 'admin'
     id = Column(String, primary_key=True)
@@ -13,6 +14,7 @@ class DbAdmin(Base):
     email = Column(String)
     password = Column(String)
 
+# Table for Course
 class DbCourse(Base):
     __tablename__ = 'course'
     id = Column(String, primary_key=True)
@@ -20,6 +22,7 @@ class DbCourse(Base):
     description = Column(String)
     lesson = relationship("DbLesson", back_populates='course')
 
+# Table for Lesson
 class DbLesson(Base):
     __tablename__ = 'lesson'
     id = Column(String, primary_key=True)
@@ -27,7 +30,7 @@ class DbLesson(Base):
     title = Column(String)
     course = relationship("DbCourse", back_populates='lesson')
 
-
+# Table for Topic
 class DbTopic(Base):
     __tablename__ = 'topic'
     id = Column(String, primary_key=True)
@@ -38,6 +41,7 @@ class DbTopic(Base):
     external_link_vid = Column(String)
     external_link_mat = Column(String)
 
+# Table for Activity
 class DbActivity(Base):
     __tablename__ = 'activity'
     id = Column(String, primary_key=True)
@@ -46,17 +50,20 @@ class DbActivity(Base):
     img_file_url = Column(String)
     remarks = Column(String)
 
+# Table for Quiz
 class DbQuiz(Base):
     __tablename__ = 'quiz'
     id = Column(String, primary_key=True)
     quiz_name = Column(String)
 
+# Table for QuizQuestions
 class DbQuizQuestions(Base):
     __tablename__ = 'quiz_questions'
     id = Column(String, primary_key=True)
     quiz_id = Column(String, ForeignKey('quiz.id'))
     question_name = Column(String)
 
+# Table for QuizChoices
 class DbQuizChoices(Base):
     __tablename__ = 'quiz_choices'
     questions_id = Column(String, ForeignKey('quiz_questions.id'))
