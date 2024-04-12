@@ -6,6 +6,8 @@ from db.database import get_db
 from db import models
 from db.hash import Hash
 from auth import oauth2
+from db.db_admin import log_in
+
 
 router = APIRouter(
     tags = ['authentication']
@@ -20,6 +22,8 @@ def get_token(request: OAuth2PasswordRequestForm = Depends(), db: Session = Depe
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Incorrect password")
 
     access_token = oauth2.create_access_token(data={'sub': user.email})
+
+    log_in(db, user.email, access_token)
 
     return {
         'access_token': access_token,
