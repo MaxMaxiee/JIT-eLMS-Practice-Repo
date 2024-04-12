@@ -2,6 +2,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
+# DB NAME: jit_elms
+# SQL: sqlite
+
+# SQL URL
 SQLALCHEMY_DATABASE_URL = "sqlite:///./jit_elms.db"
 
 engine = create_engine(

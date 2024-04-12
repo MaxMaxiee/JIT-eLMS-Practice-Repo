@@ -4,6 +4,8 @@ from sqlalchemy import Column
 from sqlalchemy.sql.sqltypes import Integer, String, Boolean
 from sqlalchemy.orm import relationship
 
+# NOT FINAL MODEL
+
 # Table for Admin
 class DbAdmin(Base):
     __tablename__ = 'admin'

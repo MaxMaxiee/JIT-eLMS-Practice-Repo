@@ -5,6 +5,8 @@ from router import admin_router, course_router, lesson_router, topic_router, qui
 from auth import authentication
 
 app = FastAPI()
+
+# Routers for each objects
 app.include_router(admin_router.router)
 app.include_router(course_router.router)
 app.include_router(lesson_router.router)
