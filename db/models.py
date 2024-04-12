@@ -3,18 +3,26 @@ from db.database import Base
 from sqlalchemy import Column
 from sqlalchemy.sql.sqltypes import Integer, String, Boolean
 from sqlalchemy.orm import relationship
+from uuid import uuid4
 
 # NOT FINAL MODEL
 
 # Table for Admin
 class DbAdmin(Base):
     __tablename__ = 'admin'
-    id = Column(String, primary_key=True)
-    firsname = Column(String)
+    id = Column(String, primary_key=True, default=lambda: str(uuid4()))
+    firstname = Column(String)
     middlename = Column(String)
     lastname = Column(String)
     email = Column(String)
     password = Column(String)
+
+# Table for Login
+class DbLogin(Base):
+    __tablename__ = 'login'
+    id = Column(String, primary_key=True, default=lambda: str(uuid4()))
+    email = Column(String)
+    token = Column(String)
 
 # Table for Course
 class DbCourse(Base):
