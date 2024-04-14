@@ -6,7 +6,7 @@ from db.database import get_db
 from db import models
 from db.hash import Hash
 from auth import oauth2
-from db.db_admin import log_in
+#from db.db_admin import log_in
 
 
 router = APIRouter(
@@ -23,7 +23,7 @@ def get_token(request: OAuth2PasswordRequestForm = Depends(), db: Session = Depe
 
     access_token = oauth2.create_access_token(data={'sub': user.email})
 
-    log_in(db, user.email, access_token)
+    #log_in(db, user.email, access_token)
 
     return {
         'access_token': access_token,

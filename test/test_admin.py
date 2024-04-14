@@ -24,3 +24,19 @@ def test_create_user(client):
     }
     response = client.post('/admin/create', json=payload)
     assert response.status_code == 200
+
+def test_authentication(client):
+    # Step 1: Authenticate the user and obtain a token
+    payload = {
+        "firstname": "PLACEHOLDER",
+        "middlename": "PLACEHOLDER",
+        "lastname": "PLACEHOLDER",
+        "email": "PLACEHOLDER@example.com",
+        "password": "PLACEHOLDER",
+    }
+    client.post('/admin/create', json=payload)
+    response = client.post("/token", data={"username": "PLACEHOLDER@example.com", "password": "PLACEHOLDER"})
+    assert response.status_code == 200
+
+
+

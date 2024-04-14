@@ -1,6 +1,8 @@
 # Schemas
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr, Field
 from typing import List
+from fastapi import HTTPException, status
+
 
 class AdminBase(BaseModel):
     firstname: str

@@ -7,3 +7,4 @@ pytest
 httpx
 python-jose
 python-multipart
+email-validator
